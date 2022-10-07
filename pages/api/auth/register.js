@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 
 async function handler(req, res) {
     if (req.method !== "POST") {
-        res.status(405).json({error: "only POST methos is allow"});
+        res.status(405).json({error: "only POST method is allow"});
         return;
     }
     const {name, email, password} = req.body;
