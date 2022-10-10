@@ -113,8 +113,9 @@ const Cal_management = () => {
         <nav className="relative w-full flex items-center justify-between py-4 bg-gray-100 text-gray-500 
             hover:text-gray-700 focus:text-gray-700 navbar navbar-expand-lg shadow-lg navbar-light ">
                 <div className="m-5 flex space-x-4">
-                <img src="https://www.creative-tim.com/learning-lab/tailwind-starter-kit/img/team-2-800x800.jpg" alt="..." 
-                        class="shadow rounded-full max-w-5 h-10 align-middle border-none" />
+                    <input type="file"  
+                        class="shadow rounded-full max-w-5 h-10 align-middle border-none"/>
+                    {/* class="shadow rounded-full max-w-5 h-10 align-middle border-none" */}
                     <h1 >{session?.user && <span>{session?.user.name}</span>}</h1>
                 </div>
                 <ul>
