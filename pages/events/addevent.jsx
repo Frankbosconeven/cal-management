@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useRouter} from "next/router"
 import axios from 'axios';
 
-const AddPost = () => {
+const AddEvent = () => {
     const [data, setData] = useState({
         title: "",
         body: "",
@@ -17,10 +17,10 @@ const AddPost = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/posts`, data,
+            await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/events`, data,
             );
 
-            router.push("/posts")
+            router.push("/")
         } catch (error) {
             setError(error.message);
         }
@@ -28,7 +28,7 @@ const AddPost = () => {
 
   return (
     <div>
-        <h1>Add post</h1>
+        <h1>Add events</h1>
         <form onSubmit={handleSubmit}>
             {error && <p>{error}</p>}
             <div>
@@ -51,4 +51,4 @@ const AddPost = () => {
   )
 }
 
-export default AddPost
+export default AddEvent

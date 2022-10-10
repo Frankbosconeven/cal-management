@@ -1,9 +1,9 @@
 import React from 'react';
-import {getPosts} from "../../../utils/getPosts";
+import {getEvents} from "../../utils/getEvents";
 
 
 export async function getStaticPaths() {
-    const res = await getPosts();
+    const res = await getEvents();
 
     const paths = res.map((event) => ({params: {eventId: String(event._id)}}));
     return {
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
     
 };
 export async function getStaticProps(context) {
-    const event =  await getPosts(context.params.eventId);
+    const event =  await getEvents(context.params.eventId);
 
     return {
         props: {

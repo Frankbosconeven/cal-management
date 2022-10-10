@@ -1,6 +1,6 @@
 const mongoose  = require("mongoose");
 
-const postSchema = new mongoose.Schema(
+const eventSchema = new mongoose.Schema(
     {
         title: {
             type: String,
@@ -16,5 +16,5 @@ const postSchema = new mongoose.Schema(
     }
     
 );
-const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
-export default Post
+const Event = models.Event || model("Event", eventSchema);
+export default Event
