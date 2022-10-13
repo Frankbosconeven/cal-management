@@ -68,7 +68,7 @@ import { useRouter } from 'next/router';
                focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 
                ease-in-out mx-1"
             >
-              <Link>
+              <Link href="/">
                 <a onClick={(e) => {
                   e.preventDefault()
                   signIn("facebook")
@@ -95,7 +95,7 @@ import { useRouter } from 'next/router';
               focus:ring-0 active:bg-blue-800 active:shadow-lg transition 
               duration-150 ease-in-out mx-1"
             >
-              <Link>
+              <Link href="/">
                 <a onClick={(e) => {
                   e.preventDefault();
                   signIn("twitter")

@@ -106,10 +106,12 @@ const Signup = () => {
                 </div>
                 <span className="text-xs text-teal-400">Password must be same!</span>
                 <div className="flex">
+                    <Link href="/login">
                     <button type='submit'
                     className="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg 
                     hover:bg-blue-900">Create
                         Account</button>
+                    </Link>
                 </div>
                 <div className="mt-6 text-grey-dark">
                     Already have an account?
