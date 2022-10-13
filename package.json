@@ -11,13 +11,11 @@
   "dependencies": {
     "@hookform/error-message": "^2.0.0",
     "@hookform/resolvers": "^2.9.8",
-    "@mobiscroll/react-lite": "^4.10.9",
     "@next-auth/mongodb-adapter": "^1.1.0",
     "axios": "^1.1.2",
     "bcryptjs": "^2.4.3",
     "calendar-link": "^2.2.0",
     "date-fns": "^2.29.3",
-    "formik-yup": "^0.0.5",
     "i": "^0.3.7",
     "mongodb": "^4.10.0",
     "mongoose": "^6.6.5",
