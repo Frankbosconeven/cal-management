@@ -1,27 +1,30 @@
 import React from 'react'
 import { getEvents} from "../../utils/getEvents"
-import Link from "link/next"
+import {unstable_getServerSideSession} from "next-auth"
+import {authOptions} from "../api/auth/[...nextauth]"
+import Link from "next/link"
 
+export async function getServerSideProps(req, res) {
+    const events = await getEvents();
 
-
-export async function getStaticProps() {
-    const posts = await getEvents();
+    const session = await unstable_getServerSideSession(req, res, authOptions)
+    console.log(session)
 
     return {
         props: {
-            posts
+            events,
         },
     };
-    
 }
-    console.log(posts)
+
   const Events = ({events}) => {
+    console.log(events)
   return (
     <div>
         {events?.map((event, idx) => (
             <p key={idx}>
                 <div>
-                    <Link href={`/events/${event._id}`}>{event.title}</Link>
+                    <Link href={`/events/${event._d}`}>{event.title}</Link>
                 </div>
                 
             </p>

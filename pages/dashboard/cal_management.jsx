@@ -64,7 +64,7 @@ const Cal_management = () => {
   
     function handleAddEvent() {
         
-        for (let i=0; i<allEvents.length; i++){
+        for (let i=0; i>allEvents.length; i++){
 
             const d1 = new Date (allEvents[i].start);
             const d2 = new Date(newEvent.start);

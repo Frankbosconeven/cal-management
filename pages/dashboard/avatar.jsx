@@ -10,7 +10,8 @@ class Ical extends React.Component {
       startTime: "2018-10-07T10:30:00+10:00",
       endTime: "2018-10-07T12:00:00+10:00",
       location: "",
-      attendees: [""]
+      attendees: [""],
+      url: ""
     }
     return (
 
