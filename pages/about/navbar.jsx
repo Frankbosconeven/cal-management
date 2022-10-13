@@ -6,7 +6,7 @@ const NavBar = () => {
     <div>
         <nav>
       <div class="container mx-auto px-6 py-2 flex justify-between items-center">
-        <Link>
+        <Link href="/">
         <a class="font-bold text-2xl lg:text-4xl">
           CAL MANAGEMENT
         </a>
@@ -21,10 +21,10 @@ const NavBar = () => {
         </div>
         <div class="hidden lg:block">
           <ul class="inline-flex">
-            <Link><a class="px-4 hover:text-gray-800">Pricing</a></Link>
-            <Link><a class="px-4 hover:text-gray-800">Premium</a></Link>
-            <Link><a class="px-4 hover:text-gray-800">Contact</a></Link>
-            <Link><a class="px-4 hover:text-gray-800">About</a></Link>
+            <Link href="/"><a class="px-4 hover:text-gray-800">Pricing</a></Link>
+            <Link href="/"><a class="px-4 hover:text-gray-800">Premium</a></Link>
+            <Link href="/"><a class="px-4 hover:text-gray-800">Contact</a></Link>
+            <Link href="/"><a class="px-4 hover:text-gray-800">About</a></Link>
           </ul>
         </div>
       </div>
