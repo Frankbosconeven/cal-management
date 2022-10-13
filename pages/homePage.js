@@ -89,7 +89,7 @@ function HomePage() {
 
   <div class="text-center bg-[rgba(0, 0, 0, 0.2)]">
     © 2022 Copyright:
-    <a class="text-white" href="/">Cal management</a>
+    <Link href="/"><a class="text-white">Cal management</a></Link>
   </div>
 </footer>
     </div>

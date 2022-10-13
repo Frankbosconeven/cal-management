@@ -19,10 +19,10 @@ const NavBar = () => {
         </div>
         <div class="hidden lg:block">
           <ul class="inline-flex">
-            <Link href="/" ><li><a class="px-4 hover:text-gray-800">Pricing</a></li></Link>
-            <Link href=""><li><a class="px-4 hover:text-gray-800">Premium</a></li></Link>
-            <Link href=""><li><a class="px-4 hover:text-gray-800">Contact</a></li></Link>
-            <Link href=""><li><a class="px-4 hover:text-gray-800">About</a></li></Link>
+            <Link href="/" ><a class="px-4 hover:text-gray-800">Pricing</a></Link>
+            <Link href=""><a class="px-4 hover:text-gray-800">Premium</a></Link>
+            <Link href=""><a class="px-4 hover:text-gray-800">Contact</a></Link>
+            <Link href=""><a class="px-4 hover:text-gray-800">About</a></Link>
           </ul>
         </div>
       </div>
