@@ -5,7 +5,7 @@ function HomePage() {
     <div>
       <nav>
       <div class="container mx-auto px-6 py-2 flex justify-between items-center">
-        <Link href="/">
+        <Link>
         <a class="font-bold text-2xl lg:text-4xl">
           CAL MANAGEMENT
         </a>
@@ -20,9 +20,9 @@ function HomePage() {
         </div>
         <div class="hidden lg:block">
           <ul class="inline-flex">
-            <Link href="" ><a class="px-4 hover:text-gray-800">Pricing</a></Link>
-            <Link href=""><a class="px-4 hover:text-gray-800">Premium</a></Link>
-            <Link href=""><a class="px-4 hover:text-gray-800">Contact</a></Link>
+            <Link><a class="px-4 hover:text-gray-800">Pricing</a></Link>
+            <Link><a class="px-4 hover:text-gray-800">Premium</a></Link>
+            <Link><a class="px-4 hover:text-gray-800">Contact</a></Link>
             <Link href="/about/aboutus"><a class="px-4 hover:text-gray-800">About</a></Link>
           </ul>
         </div>
@@ -89,7 +89,7 @@ function HomePage() {
 
   <div class="text-center bg-[rgba(0, 0, 0, 0.2)]">
     © 2022 Copyright:
-    <Link href="/"><a class="text-white">Cal management</a></Link>
+    <Link><a class="text-white">Cal management</a></Link>
   </div>
 </footer>
     </div>
