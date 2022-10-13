@@ -12,13 +12,18 @@ export async function getStaticProps() {
             posts
         },
     };
+    
 }
+    console.log(posts)
   const Events = ({events}) => {
   return (
     <div>
-        {events.map((event) => (
-            <p>
-                <Link href={`/events/${event._id}`}><p>{event.title}</p></Link>
+        {events?.map((event, idx) => (
+            <p key={idx}>
+                <div>
+                    <Link href={`/events/${event._id}`}>{event.title}</Link>
+                </div>
+                
             </p>
         ))}
         <h1>Events</h1>
