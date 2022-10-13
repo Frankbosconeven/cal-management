@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router'; 
 import Link from 'next/link'
 
-const signup = () => {
+const Signup = () => {
     const [data, SetData] = useState({
         name: "",
         email: "",
@@ -128,4 +128,4 @@ const signup = () => {
   )
 }
 
-export default signup
+export default Signup
