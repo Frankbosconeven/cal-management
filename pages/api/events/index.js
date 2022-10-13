@@ -10,7 +10,6 @@ export default async function handler(req, res) {
         await db.connect();
 
         const event = await Event.find({})
-
         await db.disconnect();
 
         res.status(200).json({event});

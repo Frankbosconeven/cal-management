@@ -42,7 +42,7 @@ const signup = () => {
         try {
             console.log(data)
             await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/register`, data);
-            router.push("/")
+            router.push("/login")
         } catch (error) {
             console.log(error)
             setError(error.response.data.message);

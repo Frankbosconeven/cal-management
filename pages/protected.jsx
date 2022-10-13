@@ -8,14 +8,14 @@ const Protected = () => {
     
     useEffect = (() => {
         if(status !== "authenticated") {
-            router.push("/");
+            router.push("/login");
         }
     },[status])
   return (
     <div>
         protected
         {status == "authenticated" ? (
-            <button onClick={() => signOut({ callbackUrl: "/"})}>
+            <button onClick={() => signOut({ callbackUrl: "/login"})}>
                 LogOut
             </button>
         ): (

@@ -7,10 +7,8 @@ import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import {useRouter} from "next/router"
-import axios from 'axios';
-import Link from "next/link"
-import {useSession} from "next-auth/react"
+import Nav from "./nav";
+import Ical from "./avatar"
 
 
 const locales = {
@@ -26,61 +24,44 @@ const localizer = dateFnsLocalizer({
 
 const events = [
     {
-        title: "Big Meeting",
+        title: "",
         allDay: true,
         start: new Date(2021, 6, 0),
         end: new Date(2021, 6, 0),
+        body: "",
+        timeFormat:"HH:mm",
+        showTimeSelect : "",
+        dateFormat:"MMMM d, yyyy h:mm aa",
+        location: "",
     },
     {
-        title: "Vacation",
+        title: "",
+        body: "",
         start: new Date(2021, 6, 7),
         end: new Date(2021, 6, 10),
+        timeFormat:"HH:mm",
+        showTimeSelect : "",
+        dateFormat:"MMMM d, yyyy h:mm aa",
+        location: "",
     },
     {
-        title: "Conference",
+        title: "",
         start: new Date(2021, 6, 20),
         end: new Date(2021, 6, 23),
+        body: "",
+        timeFormat:"HH:mm",
+        showTimeSelect : "",
+        dateFormat:"MMMM d, yyyy h:mm aa",
+        location: "",
     },
 ];
 
 const Cal_management = () => {
-    const [newEvent, setNewEvent] = useState({ title: "", body: "", start: "", end: "" });
+    const [newEvent, setNewEvent] = useState({
+         title: "", body: "", start: "", end: "" 
+    });
     const [allEvents, setAllEvents] = useState(events);
-    const {data:session} = useSession()
-    console.log(session)
-    // const [data, setData] = useState({
-    //     title: "",
-    //     body: "",
-    // });
-    // const [error, setError] = useState("")
-    // const router = useRouter();
-
-    // const [state, setState] = useState(false);
-
-    // const showDropdown = () => {
-    //     setState(true);
-    // }
-    // const hideDropdown = () => {
-    //     setState(false);
-    // }
-
-    // const handleChange = (e) => {
-    //     setData({...data, [e.target.name]: e.target.value});
-    // };
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/events`, data,
-    //         );
-
-    //         router.push("/events")
-    //     } catch (error) {
-    //         setError(error.message);
-    //     }
-    // };
-
-
+  
     function handleAddEvent() {
         
         for (let i=0; i<allEvents.length; i++){
@@ -110,49 +91,7 @@ const Cal_management = () => {
     }
   return (
     <div>
-        <nav className="relative w-full flex items-center justify-between py-4 bg-gray-100 text-gray-500 
-            hover:text-gray-700 focus:text-gray-700 navbar navbar-expand-lg shadow-lg navbar-light ">
-                <div className="m-5 flex space-x-4">
-                    <input type="file"  
-                        class="shadow rounded-full max-w-5 h-10 align-middle border-none"/>
-                    {/* class="shadow rounded-full max-w-5 h-10 align-middle border-none" */}
-                    <h1 >{session?.user && <span>{session?.user.name}</span>}</h1>
-                </div>
-                <ul>
-                    <li className="mr-2">
-                        <Link href="">
-                        <a>LogOut</a>
-                        </Link>
-                    </li>
-                </ul>
-                {/* <div className=" flex flex-col" onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
-                    hhhh
-                {
-                    state ?
-                    (<ul >
-                        <Link href="">
-                            <a >
-                                Edit profile
-                            </a>
-                        </Link>
-                        <Link href="">
-                            <a >
-                                Dashboard
-                            </a>
-                        </Link>
-                        <Link href="">
-                            <a >
-                                LogOut
-                            </a>
-                        </Link>
-                    </ul> ):
-                    null
-                }
-                </div> */}
-        </nav>
-
-
-
+        <Nav />
         <div className="flex">
             <div className="flex justify-center items-center mt-11 ml-5 ">
                 <div className="flex flex-col justify-center content-center m-2">
@@ -160,28 +99,43 @@ const Cal_management = () => {
                 {/* <form onSubmit={handleSubmit}>
                     {error && <p>{error}</p>}</form> */}
                     
-                <input 
+                <input name="title"
                     className="shadow appearance-none border rounded w-64 py-2 px-3 
                   text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
                     type="text" placeholder="Add Title" 
                      value={newEvent.title} 
                      onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} />
+                     <input name="location"
+                    className="shadow appearance-none border rounded w-64 py-2 px-3 
+                  text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
+                    type="location" placeholder="Location" 
+                     value={newEvent.location} 
+                     onChange={(e) => setNewEvent({ ...newEvent, location: e.target.value })} />
                 <DatePicker
                  className="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 
                  leading-tight focus:outline-none focus:shadow-outline mb-2"
                  placeholderText="Start Date"  
                  selected={newEvent.start} 
-                 onChange={(start) => setNewEvent({ ...newEvent, start })} />
+                 onChange={(start) => setNewEvent({ ...newEvent, start })} 
+                 timeFormat="HH:mm"
+                 showTimeSelect
+                 dateFormat="MMMM d, yyyy h:mm aa"
+                 />
+                 
                 <DatePicker 
                     className="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 
                     leading-tight focus:outline-none focus:shadow-outline mb-2"
                     placeholderText="End Date" 
                     selected={newEvent.end} 
-                    onChange={(end) => setNewEvent({ ...newEvent, end })} />
+                    onChange={(end) => setNewEvent({ ...newEvent, end })}
+                    timeFormat="HH:mm"
+                    showTimeSelect
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                />
                     <div class="mb-3 xl:w-96">
-                        <label for="exampleFormControlTextarea1" class="justify-center items-center form-label inline-block mb-2 text-gray-700"
+                        <label htmlFor="body" class="justify-center items-center form-label inline-block mb-2 text-gray-700"
                         >Event description</label>
-                        <textarea
+                        <textarea 
                             value={newEvent.body} 
                             onChange={(e) => setNewEvent({ ...newEvent, body: e.target.value })}
                             class="form-control block w-64 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0
@@ -189,15 +143,25 @@ const Cal_management = () => {
                             id="body" name="body" rows="3" placeholder="Event description">
                         </textarea>
                     </div>
-                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white 
+                       <div>
+                       <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white 
                             font-bold py-2 px-4 rounded mt-2" onClick={handleAddEvent}>
                             Add Event
                         </button>
+                        <Ical />
+                       </div>
                 </div>
+                
         </div>
-            <Calendar localizer={localizer} events={allEvents} startAccessor="start" endAccessor="end" 
-                style={{ height: 500, margin: "50px" }} />
+            <Calendar localizer={localizer} events={allEvents} 
+                startAccessor="start" endAccessor="end" 
+                style={{ height: 700, margin: "50px" }} />
+                <div>
+                <button>Edit</button>
+                <button>Delete</button>
             </div>
+            </div>
+            
     </div>
   )
 }
